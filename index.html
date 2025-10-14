@@ -11,9 +11,15 @@
       background-color: #f8f9fa;
       color: #333;
     }
-    h1 {
+    h1, h2 {
       text-align: center;
       color: #222;
+    }
+    .intro {
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+      text-align: center;
+      font-size: 1.05em;
     }
     .projects {
       display: grid;
@@ -38,7 +44,20 @@
   </style>
 </head>
 <body>
-  <h1>My Projects</h1>
+  <h1>Daniel Choate</h1>
+
+  <div class="intro">
+    <p>
+      I am a PhD candidate in the Automated Systems and Robotics (ASAR) Lab at Tufts University, led by Dr. Jason Rife. My research focuses on high-integrity navigation for autonomous vehicles, specializing in computer vision, sensor fusion, and embedded systems.
+    </p>
+    <p>
+      I have experience designing real-time systems with microcontrollers, wireless communication systems through MQTT/BLE, IMU sensors, and LiDAR. My projects include balancing robots, secure delivery robots, and simultaneous localization and mapping (SLAM) frameworks.
+    </p>
+    <p>
+      With experience in tools like ROS, Open3D, and OpenCV, I integrate 3D visualization and image processing into robotics workflows. I’m skilled in Python and C++, with expertise in real-time state estimation solutions.
+    </p>
+  </div>
+  <h2>My Projects</h2>
   <div class="card">
       <h3><a href="https://github.com/dchoate119/SurfVAN">Vision-Based Map Matching for Aircraft Surface Movement</a></h3>
       <p>Research project for aircraft surface navigation using SfM techniques.</p>
@@ -50,7 +69,7 @@
     </div>
     <div class="card">
       <h3><a href="https://github.com/dchoate119/BalancingRobot">Balancing Robot</a></h3>
-      <p>Python simulation of a particle filter with low-variance resampling.</p>
+      <p>PD control implementation on a balancing robot prototype.</p>
     </div>
   </div>
 </body>

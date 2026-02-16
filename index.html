@@ -4,73 +4,414 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daniel Choate</title>
+
   <style>
+    :root {
+      /*Color theme*/
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #0056b3;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f8f9fa;
-      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    h1, h2 {
-      text-align: center;
-      color: #222;
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
-    .intro {
-      max-width: 800px;
-      margin: 0 auto 50px auto;
-      text-align: center;
-      font-size: 1.05em;
+
+    a:hover {
+      text-decoration: underline;
     }
-    .projects {
+
+    /* ---------- Layout ---------- */
+
+    .container {
+      /*For wider layout*/
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px 80px;
+    }
+    /* section margins*/
+    section {
+      margin-top: 70px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    /* ---------- Hero ---------- */
+
+    .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: 140px 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero img.headshot {
+      width: 150px;
+      height: 190px;
+      border-radius: 25px;
+      object-fit: cover;
+      object-position: 50% 10%;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 10px 0 18px;
+      font-size: 1.05rem;
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .links a {
+      display: inline-flex;
+    }
+
+
+    .links img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .links a:hover img {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+
+    /* ---------- Cards ---------- */
+
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    /* ---------- Publications ---------- */
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .pub {
+      display: grid;
+      grid-template-columns: 120px 1fr;
       gap: 20px;
+      align-items: center;
+    }
+
+    .pub img {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #ddd;
+    }
+
+    .pub .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pub .links a {
+      margin-right: 12px;
+      font-size: 0.95rem;
+    }
+
+    .award {
+      margin-top: 4px;
+      font-weight: 400;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    /* ---------- Projects ---------- */
+
+    .project-group {
       margin-top: 40px;
     }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: 0.2s ease;
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
     }
-    .card:hover {
-      transform: scale(1.03);
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: #ddd;
     }
-    a {
-      text-decoration: none;
-      color: #0078d7;
+
+    .tags {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero img {
+        margin: auto;
+      }
+
+      .pub {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
-  <h1>Daniel Choate</h1>
 
-  <div class="intro">
-    <p>
-      I am a PhD candidate in the Automated Systems and Robotics (ASAR) Lab at Tufts University, led by Dr. Jason Rife. My research focuses on high-integrity navigation for autonomous vehicles, specializing in computer vision, sensor fusion, and embedded systems.
-    </p>
-    <p>
-      I have experience designing real-time systems with microcontrollers, wireless communication systems through MQTT/BLE, IMU sensors, and LiDAR. My projects include balancing robots, secure delivery robots, and simultaneous localization and mapping (SLAM) frameworks.
-    </p>
-    <p>
-      With experience in tools like ROS, Open3D, and OpenCV, I integrate 3D visualization and image processing into robotics workflows. I’m skilled in Python and C++, with expertise in real-time state estimation solutions.
-    </p>
-  </div>
-  <h2>My Projects</h2>
-  <div class="card">
-      <h3><a href="https://github.com/dchoate119/SurfVAN">Vision-Based Map Matching for Aircraft Surface Movement</a></h3>
-      <p>Research project for aircraft surface navigation using SfM techniques.</p>
-    </div>
-  <div class="projects">
-    <div class="card">
-      <h3><a href="https://github.com/dchoate119/DeliveryBot">Secure and Safe Delivery Robot</a></h3>
-      <p>Wireless, hand motion-controlled delivery robot with facial recognition protection.</p>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/dchoate119/BalancingRobot">Balancing Robot</a></h3>
-      <p>PD control implementation on a balancing robot prototype.</p>
-    </div>
+<body>
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <img class="headshot" src="images/headshot.png" alt="Daniel Choate">
+
+      <div>
+        <h1>Daniel Choate</h1>
+        <p>
+          PhD candidate in the Automated Systems and Robotics (ASAR) Lab at Tufts University, working on robust vision and lidar-based navigation, visual scene reconstruction, and high-integrity state estimation for autonomous systems.
+        </p>
+        <div class="links">
+
+          <a href="https://www.linkedin.com/in/daniel-choate/ "target="_blank" aria-label="LinkedIn">
+            <img src="images/linkedin.png" alt="LinkedIn">
+          </a>
+
+          <a href="https://github.com/dchoate119" target= "_blank" aria-label="GitHub">
+            <img src="images/github.png" alt="Github">
+          </a>
+
+          <a href="https://scholar.google.com/citations?user=Kb-WHVgAAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
+          <img src="images/scholar.jpg" alt="Google Scholar">
+        </a>
+
+          <!-- <a href="#">CV (PDF)</a> -->
+          <!-- <a href="mailto:dchoate119@gmail.com">Email</a> -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PUBLICATIONS ===== -->
+    <section>
+      <h2>Recent Publications</h2>
+
+      <div class="pub-list">
+
+        <!-- ==== SurfNAV paper ==== -->
+        <div class="card pub">
+          <img src="images/pose_vectors.gif" alt="TODO: PICTURE">
+          <div>
+            <h3>
+              <a href="https://www.ion.org/publications/abstract.cfm?articleID=20382">
+                Exploiting Structure-from-Motion for Robust Vision-Based Map Matching for Aircraft Surface Movement
+              </a>
+            </h3>
+            <div class="meta">
+              Daniel Choate, Jason Rife | ION GNSS+ 2025 
+            </div>
+
+            <div class = "award">
+              <a href="https://engineering.tufts.edu/news-events/news/phd-student-wins-best-paper-ion-gnss" target="_blank">
+                Best Student Paper Award
+              </a>
+
+
+            </div>
+            <!-- <p>
+              Vision-aided navigation pipeline using SfM-derived ground mosaics for satellite map matching enabling aircraft surface movement
+            </p> -->
+            <div class="links">
+              <a href="#">Paper</a>
+              <a href="#">Code</a>
+            </div>
+          </div>
+        </div>
+
+         <!-- ===== Publication 2 (placeholder) ===== -->
+        <div class="card pub">
+          <img src="images/lidar_scan.png" alt="TODO: PICTURE">
+          <div>
+            <h3>
+              <a href="https://www.ion.org/publications/abstract.cfm?articleID=19864">
+                Characterizing Lidar Point-Cloud Adversities Using a Vector Field Visualization
+              </a>
+            </h3>
+
+            <div class="meta">
+              Daniel Choate, Jason Rife | ION GNSS+ 2024
+            </div>
+
+            <!-- <p>
+              A visualization pipeline utilizing vector-field representation of local discrepancies between lidar point clouds, utilized to diagnose scan matching adversities.
+            </p> -->
+
+            <div class="links">
+              <a href="https://arxiv.org/pdf/2510.13619">Paper</a>
+              <!-- <a href="#">Code</a> -->
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section>
+      <h2>Projects</h2>
+
+      <div class="project-group">
+        <h3>Autonomy & Navigation</h3>
+        <div class="project-grid">
+          <div class="card project-card">
+            <img src="images/tufts_map.gif" alt="">
+            <h3>UAV Vision-Aided Navigation Pipeline</h3>
+            <p>SfM-based localization and satellite map matching pipeline.</p>
+            <!-- <div class="tags">Vision · SfM · Map Matching</div> -->
+            <a href="https://github.com/dchoate119/SurfVAN">Repository</a>
+          </div>
+
+          <div class="card project-card">
+            <img src="images/delivery_demo.gif" alt="">
+            <h3>Secure Wearable-Controlled Delivery Robot</h3>
+            <p>Wireless hand controlled delivery robot with vision-based security.</p>
+            <!-- <div class="tags">Robotics · Embedded · MQTT</div> -->
+            <a href="https://github.com/dchoate119/DeliveryBot">Repository</a>
+          </div>
+
+          <div class="card project-card">
+            <img src="images/balancing.png" alt="">
+            <h3>Balancing Robot</h3>
+            <p>PD control on an inverted-pendulum robot.</p>
+            <!-- <div class="tags">Robotics · Embedded · MQTT</div> -->
+            <a href="https://github.com/dchoate119/BalancingRobot">Repository</a>
+          </div>
+
+          <div class="card project-card">
+            <img src="images/stair_climber.gif" alt="">
+            <h3>RoboProxy</h3>
+            <p>Stair climbing robot for off-road navigation and exploration.</p>
+            <div class="tags">Group Project - Tufts</div>
+            <!-- <a href="https://github.com/dchoate119/DeliveryBot">Repository</a> -->
+          </div>
+
+
+          <!-- <div class="card project-card">
+            <img src="xxxx" alt="">
+            <h3>Secure Delivery Robot</h3>
+            <p>Wireless delivery robot with vision-based security.</p>
+            <div class="tags">Robotics · Embedded · MQTT</div>
+            <a href="https://github.com/dchoate119/DeliveryBot">Repository</a>
+          </div> -->
+
+
+        </div>
+      </div>
+
+      <div class="project-group">
+        <h3>Computer Vision / ML</h3>
+        <div class="project-grid">
+          <div class="card project-card">
+            <img src="images/unwarp_inout.png" alt="">
+            <h3>Deep Document Unwarping</h3>
+            <p>Utilizing geometric deep learning and transformer architectures for robust document unwarping.</p>
+            <!-- <div class="tags">Control · IMU · Embedded</div> -->
+            <a href="https://github.com/dchoate119/DeepDocUnwarp">Repository</a>
+          </div>
+
+          <div class="card project-card">
+            <img src="TODO" alt=" TODO PICTURE ">
+            <h3>SfM from Scratch</h3>
+            <p>Building a feature matching &rarr; reconstruction pipeline for robust structure-from-motion.</p>
+            <!-- <div class="tags">Control · IMU · Embedded</div> -->
+            <a href="https://github.com/dchoate119/VisionHub/SfM_core">Repository</a>
+          </div>
+
+          <div class="card project-card">
+            <img src="TODO" alt="TODO PICTURE">
+            <h3>Particle Filter Drone Localization</h3>
+            <p>Simulating drone localization task implementing an image-based particle filter</p>
+            <!-- <div class="tags">Robotics · Embedded · MQTT</div> -->
+            <a href="https://github.com/dchoate119/ProbabilisticRobotics/blob/main/HW2/HW2_Choate.pdf">Report</a>
+            <a href="https://github.com/dchoate119/ProbabilisticRobotics/blob/main/HW2">Code</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="project-group">
+        <h3>Undergraduate Projects</h3>
+
+
+        <div class="project-grid">
+          <div class="card project-card">
+            <img src="assets/proj_baja.jpg" alt="">
+            <h3>SAE Baja Racing Team</h3>
+            <p>Design and manufacturing of steering column for off-road vehicle systems.</p>
+            <div class="tags">Union College SAE Baja Team</div>
+          </div>
+
+          <div class="card project-card">
+            <img src="assets/proj_baja.jpg" alt="">
+            <h3>Rolling Sphere</h3>
+            <p>Robotic rolling sphere for all-terrain obstacle course racing.</p>
+            <div class="tags">Group project</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </div>
 </body>
 </html>

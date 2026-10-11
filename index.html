@@ -185,6 +185,24 @@
       background: #ddd;
     }
 
+    .media-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .project-card .media-strip img,
+    .project-card .media-strip video {
+      height: 78px;
+      margin-bottom: 0;
+      border-radius: 4px;
+    }
+
+    .project-card a + a {
+      margin-left: 12px;
+    }
+
     .tags {
       color: var(--muted);
       font-size: 0.85rem;
@@ -343,7 +361,6 @@
       <h2>Projects</h2>
 
       <div class="project-group">
-        <h3>Autonomy & Navigation</h3>
         <div class="project-grid">
           <div class="card project-card">
             <video src="images/full_demo.mp4" autoplay muted loop playsinline></video>
@@ -370,6 +387,29 @@
           </div>
 
           <div class="card project-card">
+            <img src="TODO" alt="TODO PICTURE">
+            <h3>Ping Pong</h3>
+            <p>TODO</p>
+            <!-- <a href="#">Repository</a> -->
+          </div>
+
+          <div class="card project-card">
+            <img src="images/unwarp_inout.png" alt="">
+            <h3>Deep Document Unwarping</h3>
+            <p>Utilizing geometric deep learning and transformer architectures for robust document unwarping.</p>
+            <!-- <div class="tags">Control · IMU · Embedded</div> -->
+            <a href="https://github.com/dchoate119/DeepDocUnwarp">Repository</a>
+          </div>
+
+          <div class="card project-card">
+            <img src="TODO" alt="TODO PICTURE">
+            <h3>Whistling World Cup</h3>
+            <p>Whistle-driven steering for a robot world cup soccer match</p>
+            <div class="tags">In progress</div>
+            <a href="https://github.com/dchoate119/whistling-world-cup">Repository</a>
+          </div>
+
+          <div class="card project-card">
             <img src="images/balancing.png" alt="">
             <h3>Balancing Robot</h3>
             <p>PD control on an inverted-pendulum robot.</p>
@@ -385,46 +425,28 @@
             <!-- <a href="https://github.com/dchoate119/DeliveryBot">Repository</a> -->
           </div>
 
-
-          <!-- <div class="card project-card">
-            <img src="xxxx" alt="">
-            <h3>Secure Delivery Robot</h3>
-            <p>Wireless delivery robot with vision-based security.</p>
-            <div class="tags">Robotics · Embedded · MQTT</div>
-            <a href="https://github.com/dchoate119/DeliveryBot">Repository</a>
-          </div> -->
-
-
-        </div>
-      </div>
-
-      <div class="project-group">
-        <h3>Computer Vision / ML</h3>
-        <div class="project-grid">
           <div class="card project-card">
-            <img src="images/unwarp_inout.png" alt="">
-            <h3>Deep Document Unwarping</h3>
-            <p>Utilizing geometric deep learning and transformer architectures for robust document unwarping.</p>
-            <!-- <div class="tags">Control · IMU · Embedded</div> -->
-            <a href="https://github.com/dchoate119/DeepDocUnwarp">Repository</a>
-          </div>
-
-          <div class="card project-card">
-            <img src="TODO" alt=" TODO PICTURE ">
-            <h3>SfM from Scratch</h3>
-            <p>Building a feature matching &rarr; reconstruction pipeline for robust structure-from-motion.</p>
-            <!-- <div class="tags">Control · IMU · Embedded</div> -->
-            <a href="https://github.com/dchoate119/VisionHub/SfM_core">Repository</a>
-          </div>
-
-          <div class="card project-card">
-            <img src="TODO" alt="TODO PICTURE">
+            <div class="media-strip">
+              <img src="images/pf_1.png" alt="Particle filter step 1">
+              <img src="images/pf_2.png" alt="Particle filter step 2">
+              <img src="images/pf_3.png" alt="Particle filter step 3">
+              <img src="images/pf_4.png" alt="Particle filter step 4">
+            </div>
+            <!-- <img src="images/pf_4.png" alt="Particle filter localization"> -->
             <h3>Particle Filter Drone Localization</h3>
             <p>Simulating drone localization task implementing an image-based particle filter</p>
             <!-- <div class="tags">Robotics · Embedded · MQTT</div> -->
             <a href="https://github.com/dchoate119/ProbabilisticRobotics/blob/main/HW2/HW2_Choate.pdf">Report</a>
             <a href="https://github.com/dchoate119/ProbabilisticRobotics/blob/main/HW2">Code</a>
           </div>
+
+          <!-- SfM from Scratch: not done yet
+          <div class="card project-card">
+            <img src="TODO" alt=" TODO PICTURE ">
+            <h3>SfM from Scratch</h3>
+            <p>Building a feature matching &rarr; reconstruction pipeline for robust structure-from-motion.</p>
+            <a href="https://github.com/dchoate119/VisionHub/SfM_core">Repository</a>
+          </div> -->
 
         </div>
       </div>
@@ -435,14 +457,21 @@
 
         <div class="project-grid">
           <div class="card project-card">
-            <img src="assets/proj_baja.jpg" alt="">
+            <img src="images/baja_vehicle.jpg" alt="">
             <h3>SAE Baja Racing Team</h3>
             <p>Design and manufacturing of steering column for off-road vehicle systems.</p>
             <div class="tags">Union College SAE Baja Team</div>
+            <a href="https://arches.union.edu/do/e6027299-5a68-41ed-adeb-5b77936b1936#page/22/mode/2up">Paper</a>
+            <a href="https://muse.union.edu/union-baja-sae-club/">Team Site</a>
           </div>
 
           <div class="card project-card">
-            <img src="assets/proj_baja.jpg" alt="">
+            <div class="media-strip">
+              <video src="images/rolling_sphere.mp4" autoplay muted loop playsinline></video>
+              <img src="images/full_sphere.jpeg" alt="Rolling sphere">
+              <img src="images/cross_section_sphere.jpeg" alt="Rolling sphere cross section">
+              <img src="images/inside_sphere.jpeg" alt="Inside the rolling sphere">
+            </div>
             <h3>Rolling Sphere</h3>
             <p>Robotic rolling sphere for all-terrain obstacle course racing.</p>
             <div class="tags">Group project</div>
